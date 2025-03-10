@@ -266,23 +266,23 @@ const faqs = [
 const successStories = [
   {
     quote: "Understanding my neurodiversity helped me leverage my unique strengths in problem-solving and attention to detail. Now I lead a successful tech team that values diverse thinking styles.",
-    author: "Alex Chen",
-    role: "Software Engineering Manager",
+    author: "Author",
+    role: "Role/Position",
   },
   {
     quote: "After implementing neuro-inclusive practices, our team's creativity and innovation increased dramatically. We've seen a 40% improvement in project outcomes.",
-    author: "Sarah Johnson",
-    role: "HR Director",
+    author: "Author",
+    role: "Role/Position",
   },
   {
     quote: "Being diagnosed as autistic in adulthood was life-changing. It helped me understand myself better and find strategies that work for me. Now I help others embrace their neurodiversity.",
-    author: "Michael Rodriguez",
-    role: "Neurodiversity Advocate",
+    author: "Author",
+    role: "Role/Position",
   },
   {
     quote: "Our school's shift to neurodiversity-affirming practices has led to improved academic outcomes and student well-being across the board.",
-    author: "Dr. Emily Thompson",
-    role: "Education Specialist",
+    author: "Author",
+    role: "Role/Position",
   },
 ];
 
