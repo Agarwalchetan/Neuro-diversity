@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/open-dyslexic/OpenDyslexic-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/open-dyslexic/OpenDyslexic-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -50,8 +64,15 @@
     --ring: 222 47% 11%;
 
     --radius: 0.75rem;
+
+    transition: 
+      --accent 0.3s ease,
+      --success 0.3s ease,
+      background-color 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease;
   }
- 
+
   .dark {
     --background: 222 47% 11%;
     --foreground: 210 40% 98%;
@@ -84,161 +105,20 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground pt-16;
+  }
+
+  .font-dyslexic {
+    font-family: 'OpenDyslexic', sans-serif !important;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
   }
 }
 
-.gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500;
-}
-
-.hero-pattern {
-  background-color: #ffffff;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-
-.card-hover {
-  @apply transition-all duration-500 hover:shadow-xl hover:-translate-y-2;
-}
-
-.animate-fade-in {
-  @apply opacity-0 translate-y-4 transition-all duration-700;
-}
-
-.animate-fade-in.in-view {
-  @apply opacity-100 translate-y-0;
-}
-
-.wave-animation {
-  animation: wave 8s ease-in-out infinite;
-}
-
-@keyframes wave {
-  0%, 100% {
-    transform: translateY(0) rotate(0);
-  }
-  50% {
-    transform: translateY(-20px) rotate(5deg);
-  }
-}
-
-.pulse-animation {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: .7;
-    transform: scale(0.95);
-  }
-}
-
-/* Enhanced Styles */
-.gradient-bg {
-  @apply bg-gradient-to-r from-accent/10 via-accent/5 to-transparent;
-}
-
-.text-balance {
-  text-wrap: balance;
-}
-
-.leading-relaxed {
-  line-height: 1.75;
-}
-
-/* Card Enhancements */
-.card-hover {
-  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-transparent hover:border-accent/20;
-}
-
-/* Button Animations */
-.btn-hover {
-  @apply relative overflow-hidden transition-all duration-300;
-}
-
-.btn-hover::after {
-  content: '';
-  @apply absolute inset-0 bg-white/20 scale-x-0 origin-left transition-transform duration-300;
-}
-
-.btn-hover:hover::after {
-  @apply scale-x-100;
-}
-
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Enhanced Animations */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.float-animation {
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes shine {
-  to {
-    background-position: 200% center;
-  }
-}
-
-.shine-effect {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  background-size: 200% 100%;
-  animation: shine 2s linear infinite;
-}
-
-/* Hover Effects */
-.hover-lift {
-  @apply transition-transform duration-300 hover:-translate-y-1;
-}
-
-.hover-glow {
-  @apply transition-all duration-300;
-}
-
-.hover-glow:hover {
-  box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3);
-}
-
-/* Loading States */
-.loading-pulse {
-  @apply animate-pulse bg-accent/10;
-}
-
-/* Focus States */
-.focus-ring {
-  @apply focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:outline-none;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-muted;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-accent/30 rounded-full hover:bg-accent/50 transition-colors;
-}
+/* You can now add all your extended utility classes here (already included in your HEAD version) */

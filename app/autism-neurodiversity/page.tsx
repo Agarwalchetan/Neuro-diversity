@@ -45,8 +45,16 @@ export default function AutismNeurodiversityPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center space-y-6"
+          className="text-center space-y-6 relative"
         >
+          <div className="absolute inset-0 -z-10">
+            <Image
+              src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=2070"
+              alt="Diverse group collaborating"
+              fill
+              className="object-cover opacity-10 rounded-3xl"
+            />
+          </div>
           <h1 className="text-5xl font-bold gradient-text">Understanding Autism & Neurodiversity</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Explore the beautiful spectrum of human neurodiversity and learn how we can create a more inclusive world together.
@@ -64,18 +72,14 @@ export default function AutismNeurodiversityPage() {
           <h2 className="text-3xl font-bold mb-8">Featured Articles</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {articles.map((article, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="group"
-              >
+              <motion.div key={index} variants={itemVariants} className="group">
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
                   <div className="relative h-48">
                     <Image
                       src={article.image}
                       alt={article.title}
                       fill
-                      className="object-cover"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-6">
@@ -107,13 +111,10 @@ export default function AutismNeurodiversityPage() {
           <h2 className="text-3xl font-bold mb-8">Key Concepts</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {concepts.map((concept, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="group"
-              >
-                <Card className="p-6 hover:shadow-lg transition-all duration-300">
-                  <div className="flex items-start gap-4">
+              <motion.div key={index} variants={itemVariants} className="group">
+                <Card className="p-6 hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 -mr-16 -mt-16 bg-accent/5 rounded-full" />
+                  <div className="flex items-start gap-4 relative z-10">
                     <div className="p-3 rounded-full bg-accent/10 text-accent">
                       {getConceptIcon(concept.icon)}
                     </div>
@@ -137,25 +138,33 @@ export default function AutismNeurodiversityPage() {
           className="space-y-8"
         >
           <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
-          <Card className="p-6">
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                >
-                  <AccordionItem value={`item-${index}`} className="border rounded-lg px-4">
-                    <AccordionTrigger className="text-lg hover:text-accent transition-colors">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                </motion.div>
-              ))}
-            </Accordion>
-          </Card>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="relative">
+              <Image
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2070"
+                alt="Team collaboration"
+                width={800}
+                height={600}
+                className="rounded-lg object-cover"
+              />
+            </div>
+            <Card className="p-6">
+              <Accordion type="single" collapsible className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <motion.div key={index} variants={itemVariants}>
+                    <AccordionItem value={`item-${index}`} className="border rounded-lg px-4">
+                      <AccordionTrigger className="text-lg hover:text-accent transition-colors">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </motion.div>
+                ))}
+              </Accordion>
+            </Card>
+          </div>
         </motion.section>
 
         {/* Success Stories */}
@@ -169,16 +178,17 @@ export default function AutismNeurodiversityPage() {
           <h2 className="text-3xl font-bold mb-8">Success Stories</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {successStories.map((story, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-              >
+              <motion.div key={index} variants={itemVariants}>
                 <Card className="p-6 hover:shadow-lg transition-all duration-300">
                   <div className="space-y-4">
                     <div className="flex items-center gap-4">
-                      <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center">
-                        <Users className="h-6 w-6 text-accent" />
-                      </div>
+                      <Image
+                        src={story.image}
+                        alt={story.author}
+                        width={48}
+                        height={48}
+                        className="rounded-full"
+                      />
                       <div>
                         <h3 className="font-semibold">{story.author}</h3>
                         <p className="text-sm text-muted-foreground">{story.role}</p>
@@ -196,22 +206,27 @@ export default function AutismNeurodiversityPage() {
   );
 }
 
+// Data below...
+
 const articles = [
   {
     title: "Understanding Sensory Processing",
-    excerpt: "Explore how sensory experiences differ for neurodivergent individuals and ways to create sensory-friendly environments.",
+    excerpt:
+      "Explore how sensory experiences differ for neurodivergent individuals and ways to create sensory-friendly environments.",
     image: "https://images.unsplash.com/photo-1584714268709-c3dd9c92b378?auto=format&fit=crop&q=80&w=1600",
     url: "https://www.understood.org/articles/understanding-sensory-processing-issues",
   },
   {
     title: "The Power of Special Interests",
-    excerpt: "Discover how special interests can be leveraged for learning, career development, and personal growth.",
+    excerpt:
+      "Discover how special interests can be leveraged for learning, career development, and personal growth.",
     image: "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&q=80&w=1600",
     url: "https://www.spectrumnews.org/features/deep-dive/the-benefits-of-special-interests-in-autism/",
   },
   {
     title: "Communication Styles",
-    excerpt: "Learn about different communication styles and strategies for effective interaction in diverse groups.",
+    excerpt:
+      "Learn about different communication styles and strategies for effective interaction in diverse groups.",
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1600",
     url: "https://www.autism.org.uk/advice-and-guidance/topics/communication/communication-tools",
   },
@@ -243,46 +258,59 @@ const concepts = [
 const faqs = [
   {
     question: "What is neurodiversity?",
-    answer: "Neurodiversity is the concept that neurological differences are natural variations in human brain function and behavioral traits, regarding these differences as normal rather than deficits. This includes conditions like autism, ADHD, dyslexia, and others.",
+    answer:
+      "Neurodiversity is the concept that neurological differences are natural variations in human brain function and behavioral traits, regarding these differences as normal rather than deficits.",
   },
   {
     question: "How can workplaces be more neuro-inclusive?",
-    answer: "Workplaces can become more neuro-inclusive by providing flexible work arrangements, quiet spaces, clear communication protocols, sensory-friendly environments, and understanding different communication styles. It's also important to focus on individual strengths and provide appropriate accommodations.",
+    answer:
+      "By providing flexible work arrangements, sensory-friendly environments, and accommodating communication styles while focusing on strengths.",
   },
   {
     question: "What are common misconceptions about autism?",
-    answer: "Common misconceptions include that autistic people lack empathy, can't form relationships, or all have the same traits. In reality, autism is a spectrum, and each person's experience is unique. Autistic individuals often have deep empathy and can form meaningful relationships, just in different ways.",
+    answer:
+      "That autistic people lack empathy or can't form relationships. In reality, autism is a spectrum with diverse traits and strengths.",
   },
   {
     question: "How can I support neurodivergent family members?",
-    answer: "Supporting neurodivergent family members involves understanding their unique needs, creating supportive environments, advocating for their rights, and celebrating their strengths. It's important to listen to their experiences and work together to find strategies that work for them.",
+    answer:
+      "Understand their needs, create supportive environments, and listen to their experiences to find strategies that work for them.",
   },
   {
     question: "What is stimming and why is it important?",
-    answer: "Stimming refers to self-stimulatory behaviors that can help with emotional regulation, concentration, and sensory processing. It's a natural and important coping mechanism that shouldn't be discouraged unless it's harmful.",
+    answer:
+      "Stimming helps with emotional regulation and sensory processing. It's a natural coping mechanism that should be respected.",
   },
 ];
 
 const successStories = [
   {
-    quote: "Understanding my neurodiversity helped me leverage my unique strengths in problem-solving and attention to detail. Now I lead a successful tech team that values diverse thinking styles.",
-    author: "Author",
-    role: "Role/Position",
+    quote:
+      "Understanding my neurodiversity helped me leverage my unique strengths in problem-solving and attention to detail.",
+    author: "Jamie Reed",
+    role: "Tech Lead",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
   },
   {
-    quote: "After implementing neuro-inclusive practices, our team's creativity and innovation increased dramatically. We've seen a 40% improvement in project outcomes.",
-    author: "Author",
-    role: "Role/Position",
+    quote:
+      "After implementing neuro-inclusive practices, our team's creativity and innovation increased dramatically.",
+    author: "Sarah Liu",
+    role: "HR Director",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
   },
   {
-    quote: "Being diagnosed as autistic in adulthood was life-changing. It helped me understand myself better and find strategies that work for me. Now I help others embrace their neurodiversity.",
-    author: "Author",
-    role: "Role/Position",
+    quote:
+      "Being diagnosed as autistic in adulthood was life-changing. It helped me understand myself better and help others too.",
+    author: "Alex Morgan",
+    role: "Neurodiversity Consultant",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200",
   },
   {
-    quote: "Our school's shift to neurodiversity-affirming practices has led to improved academic outcomes and student well-being across the board.",
-    author: "Author",
-    role: "Role/Position",
+    quote:
+      "Our school's shift to neurodiversity-affirming practices improved academic outcomes and student well-being.",
+    author: "Linda Carter",
+    role: "Education Director",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200",
   },
 ];
 
