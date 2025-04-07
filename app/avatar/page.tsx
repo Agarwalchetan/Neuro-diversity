@@ -14,7 +14,7 @@ export default function AvatarPage() {
   const [avatarSize, setAvatarSize] = useState([50]);
   const [message, setMessage] = useState("");
   const [chatHistory, setChatHistory] = useState<{ type: "user" | "ai"; message: string }[]>([
-    { type: "ai", message: "Hi! I'm your NeuroGuide AI companion. I'm here to help you understand neurodiversity better and provide support on your journey. What would you like to know?" }
+    { type: "ai", message: "Hi! I'm your NeuroGuide AI companion --> Nio. I'm here to help you understand neurodiversity better and provide support on your journey. What would you like to know?" }
   ]);
 
   const handleSendMessage = () => {
