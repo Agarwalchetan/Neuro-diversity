@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/navbar";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { FormDialog } from "@/components/ui/form-dialog";
 import Image from "next/image";
@@ -167,7 +168,7 @@ const posts = [
 const events = [
   {
     title: "Virtual Coffee Chat",
-    date: "Every Tuesday, 10:00 AM IST",
+    date: "Every Tuesday, 10:00 AM IS",
     image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=2070",
   },
   {

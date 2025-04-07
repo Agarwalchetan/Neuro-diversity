@@ -15,7 +15,7 @@ export default function AvatarPage() {
   const [avatarSize, setAvatarSize] = useState([50]);
   const [message, setMessage] = useState("");
   const [chatHistory, setChatHistory] = useState<{ type: "user" | "ai"; message: string }[]>([
-    { type: "ai", message: "Hi! I'm your NeuroGuide AI companion --> Nio. I'm here to help you understand neurodiversity better and provide support on your journey. What would you like to know?" }
+    { type: "ai", message: "Hi! I'm your NeuroGuide AI companion. I'm here to help you understand neurodiversity better and provide support on your journey. What would you like to know?" }
   ]);
 
   const handleSendMessage = () => {
@@ -168,7 +168,7 @@ function getAIResponse(message: string): string {
   // This is a simplified response system. In a production environment, 
   // you would integrate with an AI service like OpenAI's GPT or similar.
   const responses = [
-    "Hello Khushagra, What can I do for you today?",
+    "That's a great question about neurodiversity! The key thing to remember is that everyone's brain works differently, and that's perfectly natural.",
     "I understand your interest in this topic. Neurodiversity is about recognizing and respecting these natural variations in human cognition.",
     "Let me help explain that. In the context of neurodiversity, it's important to focus on individual strengths and unique perspectives.",
     "That's an interesting point! Many neurodivergent individuals have unique abilities and ways of thinking that can be incredibly valuable.",

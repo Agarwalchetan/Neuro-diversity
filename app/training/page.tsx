@@ -13,7 +13,7 @@ export default function TrainingPage() {
     <main className="min-h-screen bg-background">
       <Navbar />
       <div className="container mx-auto py-10">
-        <motion.div
+        <motion.div 
           className="relative mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -27,9 +27,7 @@ export default function TrainingPage() {
               className="object-cover opacity-10 rounded-3xl"
             />
           </div>
-          <h1 className="text-4xl font-bold gradient-text text-center">
-            Training Programs
-          </h1>
+          <h1 className="text-4xl font-bold gradient-text text-center">Training Programs</h1>
           <p className="text-center text-muted-foreground mt-4 max-w-2xl mx-auto">
             Enhance your understanding of neurodiversity through our comprehensive training programs.
           </p>
@@ -45,10 +43,7 @@ export default function TrainingPage() {
               <Card className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">Upcoming Webinars</h2>
                 {upcomingWebinars.map((webinar, index) => (
-                  <div
-                    key={index}
-                    className="mb-4 last:mb-0 p-4 hover:bg-accent/5 rounded-lg transition-colors"
-                  >
+                  <div key={index} className="mb-4 last:mb-0 p-4 hover:bg-accent/5 rounded-lg transition-colors">
                     <div className="relative h-40 mb-4 rounded-lg overflow-hidden">
                       <Image
                         src={webinar.image}
@@ -62,11 +57,7 @@ export default function TrainingPage() {
                     <FormDialog
                       type="register"
                       trigger={
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="hover:bg-accent hover:text-white transition-colors"
-                        >
+                        <Button variant="outline" size="sm" className="hover:bg-accent hover:text-white transition-colors">
                           Register
                         </Button>
                       }
@@ -128,7 +119,6 @@ export default function TrainingPage() {
                   <p className="text-sm opacity-80">Comprehensive training for modern workplace inclusion</p>
                 </div>
               </div>
-
               <div className="space-y-4">
                 <div className="grid grid-cols-3 gap-4">
                   {featuredCourseImages.map((image, index) => (
