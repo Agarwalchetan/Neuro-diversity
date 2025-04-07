@@ -154,7 +154,7 @@ function getAIResponse(message: string): string {
   // This is a simplified response system. In a production environment, 
   // you would integrate with an AI service like OpenAI's GPT or similar.
   const responses = [
-    "That's a great question about neurodiversity! The key thing to remember is that everyone's brain works differently, and that's perfectly natural.",
+    "Hello Khushagra, What can I do for you today?",
     "I understand your interest in this topic. Neurodiversity is about recognizing and respecting these natural variations in human cognition.",
     "Let me help explain that. In the context of neurodiversity, it's important to focus on individual strengths and unique perspectives.",
     "That's an interesting point! Many neurodivergent individuals have unique abilities and ways of thinking that can be incredibly valuable.",
